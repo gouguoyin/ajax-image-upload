@@ -19,7 +19,7 @@
     <div class="image-box clear">
         <section class="upload-section">
             <div class="upload-btn"></div>
-            <input type="file" name="file" id="upload-input" value=""/>
+            <input type="file" name="file" class="upload-input" id="upload-input" value=""/>
         </section>
     </div>
 </div>
