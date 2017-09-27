@@ -39,7 +39,7 @@ $("#upload-input").ajaxImageUpload({
 ```
 $("#js_uploadBtn").ajaxImageUpload({
     url: '/upload.php', //上传的服务器地址
-    data: { name:'勾国印' },
+    data: { name:'勾国印' }, //额外提交的数据,没有可不写
     maxNum: 3, //允许上传图片数量
     zoom: true, //允许放大
     allowType: ["gif", "jpeg", "jpg", "bmp",'png'], //允许上传图片的类型
