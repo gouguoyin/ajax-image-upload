@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://www.sucaihuo.com/jquery/15/1569/demo/ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>上传图片插件</title>
+    <link href="./css/upload.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+
+<div class="upload-box">
+    <p class="upload-tip">作品图片：最多可以上传5张图片，马上上传</p>
+    <div class="image-box clear">
+        <section class="image-section">
+            <div class="image-shade"></div>
+            <div class="image-delete"></div>
+            <img class="image-show" src="https://upjuzi.oss-cn-beijing.aliyuncs.com/upjuzi/20170816/20170816916be9364eb6f0827adae01b5d1e2356.jpg" />
+            <input id="src" name="src" value="" type="hidden" />
+        </section>
+        <section class="upload-section">
+            <div class="upload-btn"></div>
+            <input type="file" name="file" id="upload-input" class="upload-input" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple="multiple" />
+        </section>
+
+    </div>
+
+</div>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/upload.js"></script>
+<script>
+
+    $("#upload-input").ajaxImageUpload({
+        url: '/upload.php', //上传的服务器地址
+        data: { name:'勾国印' },
+        maxNum: 3, //允许上传图片数量
+        zoom: true, //允许放大
+        allowType: ["gif", "jpeg", "jpg", "bmp",'png'], //允许上传图片的类型
+        maxSize :2, //允许上传图片的最大尺寸，单位M
+        before: function () {
+            alert('上传前回调函数');
+        },
+        success:function(data){
+            alert('上传成功回调函数');
+            console.log(data);
+        },
+        error:function (e) {
+            alert('上传失败回调函数');
+            console.log(e);
+        }
+    });
+        
+</script>
+
+</body>
+</html>
