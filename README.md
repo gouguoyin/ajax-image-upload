@@ -19,7 +19,7 @@
     <div class="image-box clear">
         <section class="upload-section">
             <div class="upload-btn"></div>
-            <input type="file" name="file" class="upload-input" id="upload-input" value=""/>
+            <input type="file" name="file" class="upload-input" id="js_uploadBtn" value=""/>
         </section>
     </div>
 </div>
@@ -37,7 +37,7 @@ $("#upload-input").ajaxImageUpload({
 (2)完整配置:
 
 ```
-$("#upload-input").ajaxImageUpload({
+$("#js_uploadBtn").ajaxImageUpload({
     url: '/upload.php', //上传的服务器地址
     data: { name:'勾国印' },
     maxNum: 3, //允许上传图片数量
