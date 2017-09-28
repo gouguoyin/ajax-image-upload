@@ -29,7 +29,7 @@
 (1)必要配置:
 
 ```
-$("#upload-input").ajaxImageUpload({
+$("#js_uploadBtn").ajaxImageUpload({
     url: '/upload.php', //上传的服务器地址
 });
 ```
