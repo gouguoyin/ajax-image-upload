@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>上传图片插件</title>
+    <link href="../src/css/upload.min.css" type="text/css" rel="stylesheet" />
+
+    <style>
+        .upload-box{
+            padding: 0 20px;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+
+        .upload-box .upload-tip{
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="upload-box clear">
+    <p class="upload-tip">最多上传2张图片(包含已上传的)，每个图片不能超过1M，向前追加图片，只允许上传png格式图片</p>
+    <div class="image-box1"></div>
+</div>
+
+<div class="upload-box clear">
+    <p class="upload-tip">最多上传3张图片(包含已上传的)，每个图片不能超过1M，向后追加图片，不允许放大</p>
+    <div class="image-box2"></div>
+</div>
+
+<script src="https://cdn.staticfile.org/jquery/3.1.0/jquery.min.js"></script>
+<script src="../src/js/upload.min.js"></script>
+
+<script>
+
+    $(".image-box1").ajaxImageUpload({
+        fileInput : 'file1',
+        ajaxUrl : './upload1.php', //上传的服务器地址
+        ajaxData : { csrf:'token1' },
+        imageUrl: ['./uploads/demo1.jpg'],
+        maxNum : 2, //允许上传图片数量
+        allowZoom : true, //允许放大
+        allowType : ['png'], //允许上传图片的类型
+        maxSize : 1, //允许上传图片的最大尺寸，单位M
+        appendMethod : 'before',
+        before: function () {
+            alert('上传前回调函数1');
+        },
+        success : function(json){
+            alert('上传成功回调函数1');
+        },
+        complete : function () {
+            alert('全部上传成功1');
+        },
+        error : function (e) {
+            alert(e.msg + '(' + e.code + ')');
+        }
+    });
+
+    $(".image-box2").ajaxImageUpload({
+        fileInput : 'file2',
+        ajaxUrl : './upload2.php', //上传的服务器地址
+        imageUrl: ['./uploads/demo2.jpg'],
+        ajaxData : { csrf:'token2' },
+        maxNum: 3, //允许上传图片数量
+        allowZoom : false, //允许放大
+        maxSize : 1, //允许上传图片的最大尺寸，单位M
+        appendMethod : 'after',
+        before : function () {
+            alert('上传前回调函数2');
+        },
+        success : function(json){
+            alert('上传成功回调函数2');
+        },
+        complete : function () {
+            alert('全部上传成功2');
+        },
+        error : function (e) {
+            alert(e.msg + '(' + e.code + ')');
+        }
+    });
+
+</script>
+
+</body>
+</html>

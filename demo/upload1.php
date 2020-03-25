@@ -1,5 +1,6 @@
 <?php
-    $file = $_FILES["file"];
+
+    $file = $_FILES["file1"];
     if(!isset($file['tmp_name']) || !$file['tmp_name']) {
         echo json_encode(array('code' => 401, 'msg' => '没有文件上传'));
         return false;
@@ -9,8 +10,10 @@
         return false;
     }
 
-    $upload_path = $_SERVER['DOCUMENT_ROOT']."/uploads/images/";
-    $file_path   = 'http://' . $_SERVER['HTTP_HOST']."/uploads/images/";
+    $upload_path = dirname(__FILE__) . "/uploads/";
+    $file_path   = "./uploads/";
+
+//    exit($upload_path);
 
     if(!is_dir($upload_path)){
         echo json_encode(array('code' => 403, 'msg' => '上传目录不存在'));
