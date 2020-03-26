@@ -18,13 +18,13 @@
         };
 
     function Plugin(element, options) {
-        this.element = element;
-        this.settings = $.extend({}, defaults, options);
+        this.element   = element;
+        this.settings  = $.extend({}, defaults, options);
         this._defaults = defaults;
-        this._name = pluginName;
-        this.complete = false;
+        this._name     = pluginName;
+        this.complete  = false;
         this.code = 0;
-        this.msg = '';
+        this.msg  = '';
         this.init();
     }
 
@@ -55,13 +55,13 @@
         fileSelect: function() {
             var $self = this,
                 $this = $(this.element),
-                $maxNum = $self.settings.maxNum,
+                $maxNum  = $self.settings.maxNum,
                 $maxSize = $self.settings.maxSize,
                 $ajaxUrl = $self.settings.ajaxUrl,
                 $fileInput = $self.settings.fileInput,
-                $before = $self.settings.before,
-                $complete = $self.settings.complete,
-                $uploadInput = $this.find("input[type=file]"),
+                $before    = $self.settings.before,
+                $complete  = $self.settings.complete,
+                $uploadInput  = $this.find("input[type=file]"),
                 $imageSection = $this.find('.ggy-image-section');
 
             if (!$ajaxUrl) {
@@ -124,16 +124,16 @@
         createSectionBox: function() {
             var $self = this,
                 $this = $(this.element),
-                $fileInput = $self.settings.fileInput,
+                $fileInput  = $self.settings.fileInput,
                 $sectionBox = $("<div class='ggy-section-box'></div>"),
                 $uploadSection = $("<section class='ggy-upload-section'></section>"),
-                $modalSection = $("<section class='ggy-modal-section'></section>"),
-                $uploadBtn = $("<i class='ggy-upload-icon'></i>"),
-                $uploadInput = $("<input type='file' name='" + $fileInput + "' class='ggy-upload-input' accept='image/*' multiple='multiple'>");
+                $modalSection  = $("<section class='ggy-modal-section'></section>"),
+                $uploadIcon    = $("<i class='ggy-upload-icon'></i>"),
+                $uploadInput   = $("<input type='file' name='" + $fileInput + "' class='ggy-upload-input' accept='image/*' multiple='multiple'>");
 
             $sectionBox.appendTo($this);
             $uploadSection.appendTo($sectionBox);
-            $uploadBtn.appendTo($uploadSection);
+            $uploadIcon.appendTo($uploadSection);
             $uploadInput.appendTo($uploadSection);
             $modalSection.appendTo($sectionBox);
 
@@ -150,18 +150,17 @@
          * @returns {*|jQuery|HTMLElement}
          */
         createImageSection: function($src) {
-
             var $self = this,
                 $this = $(this.element),
                 $fileInput = $self.settings.fileInput,
                 $allowZoom = $self.settings.allowZoom,
                 $appendMethod = $self.settings.appendMethod,
-                $sectionBox = $this.find(".ggy-section-box"),
+                $sectionBox   = $this.find(".ggy-section-box"),
                 $uploadSection = $this.find(".ggy-upload-section"),
-                $imageSection = $("<section class='ggy-image-section loading'></section>"),
-                $imageShade = $("<div class='ggy-image-shade'></div>"),
-                $hiddenInput = $("<input type='hidden' name='" + $fileInput + "[]' value='" + $src + "'>"),
-                $imageShow = $("<img class='ggy-image-show shade' src='" + $src + "'/>");
+                $imageSection  = $("<section class='ggy-image-section loading'></section>"),
+                $imageShade    = $("<div class='ggy-image-shade'></div>"),
+                $hiddenInput   = $("<input type='hidden' name='" + $fileInput + "[]' value='" + $src + "'>"),
+                $imageShow     = $("<img class='ggy-image-show shade' src='" + $src + "'/>");
 
             if ($src) {
                 $imageShow = $("<img class='ggy-image-show' src='" + $src + "'/>");
@@ -182,7 +181,7 @@
 
             $self.createDeleteNode($imageSection);
 
-            if ($allowZoom === true) {
+            if ($src && $allowZoom === true) {
                 $self.createZoomNode($imageSection);
             }
         },
@@ -190,8 +189,8 @@
         createDeleteNode: function($imageSection) {
             var $this = $(this.element),
                 $modalSection = $this.find(".ggy-modal-section"),
-                $deleteIcon = $("<i class='ggy-delete-icon'></i>"),
-                $deleteBox = $("<div class='ggy-modal-box ggy-delete-box'><p class='ggy-delete-tip'>您确定要删除吗？</p><p class='ggy-delete-btn'> <span class='ggy-confirm-btn'>确定</span><span class='ggy-cancel-btn'>取消</span></p></div>");
+                $deleteIcon   = $("<i class='ggy-delete-icon'></i>"),
+                $deleteBox    = $("<div class='ggy-modal-box ggy-delete-box'><p class='ggy-delete-tip'>您确定要删除吗？</p><p class='ggy-delete-btn'> <span class='ggy-confirm-btn'>确定</span><span class='ggy-cancel-btn'>取消</span></p></div>");
 
             $deleteIcon.appendTo($imageSection);
 
@@ -220,10 +219,10 @@
 
         createZoomNode: function($imageSection) {
             var $this = $(this.element),
-                $imageShow = $imageSection.find(".ggy-image-show"),
+                $imageShow    = $imageSection.find(".ggy-image-show"),
                 $modalSection = $this.find(".ggy-modal-section"),
                 $zoomIcon = $("<i class='ggy-zoom-icon'></i>"),
-                $zoomBox = $("<div class='ggy-modal-box ggy-zoom-box'><img src=''/></div>");
+                $zoomBox  = $("<div class='ggy-modal-box ggy-zoom-box'><img src=''/></div>");
 
             $zoomBox.find('img').attr('src', $imageShow.attr('src'));
             $zoomIcon.appendTo($imageSection);
@@ -245,19 +244,20 @@
             var $self = this,
                 $this = $(this.element),
                 $fileInput = $self.settings.fileInput,
-                $ajaxData = $self.settings.ajaxData,
-                $ajaxUrl = $self.settings.ajaxUrl,
-                $success = $self.settings.success,
+                $ajaxData  = $self.settings.ajaxData,
+                $ajaxUrl   = $self.settings.ajaxUrl,
+                $allowZoom = $self.settings.allowZoom,
+                $success   = $self.settings.success,
                 $appendMethod = $self.settings.appendMethod;
 
             switch ($appendMethod) {
                 case "before":
                     var $imageSection = $this.find('.ggy-image-section:first');
-                    var $imageShow = $this.find('.ggy-image-show:first');
+                    var $imageShow    = $this.find('.ggy-image-show:first');
                     break;
                 case "after":
                     var $imageSection = $this.find('.ggy-image-section:last');
-                    var $imageShow = $this.find('.ggy-image-show:last');
+                    var $imageShow    = $this.find('.ggy-image-show:last');
                     break;
             }
 
@@ -290,7 +290,9 @@
                     $self.complete = true;
                     $imageShow.removeClass("shade").attr('src', $json.src);
                     $imageSection.find('input[type=hidden]').val($json.src);
-                    $self.createZoomNode($imageSection);
+                    if ($allowZoom === true) {
+                        $self.createZoomNode($imageSection);
+                    }
                     $success($json);
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
@@ -310,8 +312,7 @@
          */
         isAllowFile: function(fileName) {
             var $allowType = this.settings.allowType,
-                $fileExt = this.getFileExt(fileName);
-
+                $fileExt   = this.getFileExt(fileName);
             if ($.inArray($fileExt, $allowType) != -1) {
                 return true;
             }
@@ -325,12 +326,10 @@
          */
         getFileExt: function(fileName) {
             var $fileName = fileName,
-                $index = $fileName.lastIndexOf('.');
-
+                $index    = $fileName.lastIndexOf('.');
             if ($index < 1) {
                 return '';
             }
-
             return $fileName.substr($index + 1).toLowerCase();
         },
 
@@ -347,11 +346,11 @@
          * @param $msg
          */
         callError: function($code, $msg) {
-            var $self = this,
+            var $self  = this,
                 $error = $self.settings.error;
 
             $self.code = $code;
-            $self.msg = $msg;
+            $self.msg  = $msg;
             $error($self);
         }
     };
