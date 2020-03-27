@@ -92,7 +92,7 @@ if(move_uploaded_file($file["tmp_name"], $upload_path.$file['name'])){
 ## 更新日志
 
 ### 2020-03-28
-* 解决allowZoom设置为false时无法删除的BUG
+* 解决allowZoom设置为false时无法删除图片的BUG
 * 新增已上传图片配置参数imageUrl，该参数主要用于编辑时展示之前已经上传的图片
 * 新增追加方式配置参数appendMethod，可以指定上传图片在已有图片前面追加还是后面追加
 
