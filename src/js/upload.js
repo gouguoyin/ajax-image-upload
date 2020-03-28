@@ -98,9 +98,7 @@
                     break;
                 }
 
-                $fileSize = ($file.size) / (1024 * 1024);
-
-                if ($fileSize > $maxSize) {
+                if ($self.getFileSize($file) > $maxSize) {
                     $self.callError("304", '上传图片不能超过' + $maxSize + 'M，当前上传图片的大小为' + $fileSize.toFixed(2) + 'M');
                     $self.resetFile();
                     break;
@@ -266,8 +264,8 @@
             $formData.append($fileInput, $file);
 
             if ($ajaxData) {
-                for (var $i in $ajaxData) {
-                    $formData.append($i, $ajaxData[$i]);
+                for (var $key in $ajaxData) {
+                    $formData.append($key, $ajaxData[$key]);
                 }
             }
 
@@ -307,12 +305,12 @@
 
         /**
          * 是否允许上传文件
-         * @param fileName
+         * @param file
          * @returns {boolean}
          */
-        isAllowFile: function(fileName) {
+        isAllowFile: function(file) {
             var $allowType = this.settings.allowType,
-                $fileExt   = this.getFileExt(fileName);
+                $fileExt   = this.getFileExt(file);
             if ($.inArray($fileExt, $allowType) != -1) {
                 return true;
             }
@@ -321,16 +319,25 @@
 
         /**
          * 获取文件扩展名
-         * @param fileName
+         * @param $file
          * @returns {string}
          */
-        getFileExt: function(fileName) {
-            var $fileName = fileName,
+        getFileExt: function($file) {
+            var $fileName = $file.name,
                 $index    = $fileName.lastIndexOf('.');
             if ($index < 1) {
                 return '';
             }
             return $fileName.substr($index + 1).toLowerCase();
+        },
+
+        /**
+         * 获取文件大小
+         * @param $file
+         * @returns {number}
+         */
+        getFileSize: function($file) {
+            return ($file.size) / (1024 * 1024);
         },
 
         /**

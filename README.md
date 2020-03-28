@@ -2,9 +2,9 @@
 原创jQuery图片上传插件，支持批量上传、预览、删除、放大、上传数量、上传大小、追加方式配置以及上传前、上传中和上传后的回调函数。
 
 ###### 上传前
-![演示截图](https://image-static.segmentfault.com/245/916/2459164156-5e7b799697566)
+![演示截图](https://image-static.segmentfault.com/307/630/3076307501-5e7f37312c655)
 ###### 上传后
-![演示截图](https://image-static.segmentfault.com/155/125/1551253700-5e7b79a6a92ae_articlex)
+![演示截图](https://image-static.segmentfault.com/241/131/2411318232-5e7f373f1a8eb)
 
 演示地址：[http://www.gouguoyin.cn/ajaxImageUpload/demo](http://www.gouguoyin.cn/ajaxImageUpload/demo)
 
