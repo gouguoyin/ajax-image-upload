@@ -92,7 +92,7 @@
             for (var $i = 0; $i < $files.length; $i++) {
                 var $file = $files[$i];
 
-                if (!$self.isAllowFile($file.name)) {
+                if (!$self.isAllowFile($file)) {
                     $self.callError("303", $file.name + " 图片类型不支持");
                     $self.resetFile();
                     break;
@@ -305,12 +305,12 @@
 
         /**
          * 是否允许上传文件
-         * @param file
+         * @param $file
          * @returns {boolean}
          */
-        isAllowFile: function(file) {
+        isAllowFile: function($file) {
             var $allowType = this.settings.allowType,
-                $fileExt   = this.getFileExt(file);
+                $fileExt   = this.getFileExt($file);
             if ($.inArray($fileExt, $allowType) != -1) {
                 return true;
             }
