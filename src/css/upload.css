@@ -2,7 +2,6 @@
 .ggy-section-box:after{content:'';display:block;clear:both}
 .ggy-section-box .loading{background:url(../images/loading.gif) no-repeat center}
 .ggy-section-box .ggy-image-show{display:block;width:100%;height:100%}
-.ggy-section-box .ggy-upload-section{position:relative}
 .ggy-section-box .ggy-image-section{border:1px dashed #e7e6e6;margin-right:10px}
 .ggy-section-box .ggy-image-section:hover{border:1px solid #e7e6e6}
 .ggy-image-section .ggy-image-shade{display:block;width:100%;height:100%;visibility:hidden;position:absolute;top:0;left:0;background:rgba(0,0,0,.5)}
