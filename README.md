@@ -79,6 +79,7 @@ if(move_uploaded_file($file["tmp_name"], $upload_path.$file['name'])){
     return false;
 }
 ```
+> 推荐使用 [easyhttp——轻量级、语义化、 对 IDE 友好的 HTTP 客户端](https://gitee.com/gouguoyin/easyhttp) 来处理
 
  **参数说明** 
  
