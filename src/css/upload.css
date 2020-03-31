@@ -8,7 +8,7 @@
 .ggy-image-section:hover .ggy-image-shade{visibility:visible}
 .ggy-image-section,.ggy-upload-section{position:relative;width:190px;height:190px;float:left;cursor: pointer;}
 .ggy-upload-section .ggy-upload-input{cursor:pointer;width:100%;height:100%;opacity:0;position:absolute;top:0;left:0;z-index:100}
-.ggy-upload-section .ggy-upload-icon{display:block;width:190px;height:190px;border:1px dashed #d0d0d0;background:url(../images/upload.png) no-repeat center}
+.ggy-upload-section .ggy-upload-icon{cursor: pointer;display:block;width:190px;height:190px;border:1px dashed #d0d0d0;background:url(../images/upload.png) no-repeat center}
 .ggy-section-box .ggy-modal-section{z-index:1000;display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.4)}
 .ggy-modal-section .ggy-modal-box{border:5px solid #fff;box-shadow:2px 2px 2px rgba(0,0,0,.2);background:#fff;text-align:center;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
 .ggy-image-section .ggy-delete-icon{position:absolute;width:30px;height:30px;top:5px;right:5px;display:none;z-index:999;background:url(../images/delete.png) no-repeat center}
