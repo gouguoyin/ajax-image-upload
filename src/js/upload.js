@@ -1,7 +1,6 @@
-;
-(function($) {
+;(function($) {
     var pluginName = "ajaxImageUpload",
-        defaults = {
+        defaults   = {
             fileInput: '', // 上传按钮名，即input[type=file]的name值
             ajaxUrl: '', // 请求地址
             imageUrl: [], // 已上传的图片连接
