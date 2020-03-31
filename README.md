@@ -17,7 +17,7 @@ demo:[www.gouguoyin.cn/ajaxImageUpload](http://www.gouguoyin.cn/ajaxImageUpload)
 
  **使用方法**
  
- **1、先引入jquery和插件的css和js，注意先引入jquery** 
+ - 1、先引入jquery和插件的css和js，注意先引入jquery
  
 ```
 <link href="./css/upload.min.css" type="text/css" rel="stylesheet" />
@@ -25,13 +25,13 @@ demo:[www.gouguoyin.cn/ajaxImageUpload](http://www.gouguoyin.cn/ajaxImageUpload)
 <script src="./js/upload.min.js"></script>
 ```
 
- **2、HTML结构** 
+ - 2、HTML结构
 ```
 <div class="upload-box1"></div>
 
 <div class="upload-box2"></div>
 ```
- **3、插件配置**
+ - 3、插件配置
  
 ```javascript
 $(".upload-box1").ajaxImageUpload({
@@ -45,7 +45,7 @@ $(".upload-box2").ajaxImageUpload({
 });
 ```
 
- **4、服务端处理** 
+ - 4、服务端处理
 
 服务端处理没有特殊的限制，只要服务端接受file表单提交的数据处理后返回json格式数据，上传成功返回的json数据里必须含有code和src，其中code必须为200，src是上传后的图片url，上传失败返回的json数据里必须含有code和msg，其中code为错误码(不能是200)，msg为错误信息。
 
