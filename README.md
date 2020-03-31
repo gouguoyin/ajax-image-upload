@@ -100,6 +100,11 @@ if(move_uploaded_file($file["tmp_name"], $upload_path.$file['name'])){
 
 ## 更新日志
 
+### 2020-03-30
+* 解决图片名里含有多个.时图片格式验证失败的BUG
+* 鼠标放在上传图标上时新增pointer鼠标样式
+* 优化CSS样式，删除无用的样式
+
 ### 2020-03-28
 * 解决allowZoom设置为false时无法删除图片的BUG
 * 新增已上传图片配置参数imageUrl，该参数主要用于编辑时展示之前已经上传的图片
