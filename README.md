@@ -7,7 +7,7 @@ github:[github.com/gouguoyin/ajaxImageUpload](https://github.com/gouguoyin/ajaxI
 
 gitee:[gitee.com/gouguoyin/ajaxImageUpload](https://gitee.com/gouguoyin/ajaxImageUpload "gitee.com/gouguoyin/ajaxImageUpload")
 
-demo：[http://www.gouguoyin.cn/ajaxImageUpload/demo](http://www.gouguoyin.cn/ajaxImageUpload/demo)
+demo：[www.gouguoyin.cn/ajaxImageUpload](http://www.gouguoyin.cn/ajaxImageUpload)
 
 ###### 上传前
 ![演示截图](https://image-static.segmentfault.com/307/630/3076307501-5e7f37312c655)
