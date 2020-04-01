@@ -21,7 +21,7 @@
         this.settings  = $.extend({}, defaults, options);
         this._defaults = defaults;
         this._name     = pluginName;
-        this.complete  = false;
+        this.complete  = true;
         this.code = 0;
         this.msg  = '';
         this.init();
@@ -36,14 +36,14 @@
             $self.createSectionBox();
 
             // 已经存在的图片先展示出来
-            if ($imageUrl) {
+            if ($imageUrl.length > 0) {
                 for (var $i = 0; $i < $imageUrl.length; $i++) {
                     $self.createImageSection($imageUrl[$i]);
                 }
             }
 
             $this.find("input[type=file]").on('change', function() {
-                $self.fileSelect();
+                $self.selectFile();
             });
 
         },
@@ -51,7 +51,7 @@
          * 选择文件
          * @returns {boolean}
          */
-        fileSelect: function() {
+        selectFile: function() {
             var $self = this,
                 $this = $(this.element),
                 $maxNum  = $self.settings.maxNum,
@@ -107,7 +107,7 @@
                 $self.ajaxUpload($file);
             }
 
-            if ($self.complete === true) {
+            if ($self.complete == true) {
                 $complete();
             }
 
@@ -262,7 +262,7 @@
 
             $formData.append($fileInput, $file);
 
-            if ($ajaxData) {
+            if ($ajaxData.length > 0) {
                 for (var $key in $ajaxData) {
                     $formData.append($key, $ajaxData[$key]);
                 }
@@ -279,24 +279,20 @@
                 mimeType: "multipart/form-data",
                 success: function($json) {
                     if ($json.code != 200) {
-                        $self.complete = false;
                         $self.callError($json.code, $json.msg);
                         $imageSection.remove();
                         return false;
                     }
-                    $self.complete = true;
                     $imageShow.removeClass("shade").attr('src', $json.src);
                     $imageSection.find('input[type=hidden]').val($json.src);
                     if ($allowZoom === true) {
                         $self.createZoomNode($imageSection);
                     }
+                    $self.complete *= true;
                     $success($json);
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    $self.complete = false;
-                    if (jqXHR.status !== 200) {
-                        $self.callError(jqXHR.status, 'AjaxUrl Service Error:' + jqXHR.statusText);
-                    }
+                    $self.callError(jqXHR.status, 'AjaxUrl Service Error:' + jqXHR.statusText);
                     $imageSection.remove();
                 }
             });
@@ -354,6 +350,8 @@
         callError: function($code, $msg) {
             var $self  = this,
                 $error = $self.settings.error;
+
+            $self.complete *= false;
 
             $self.code = $code;
             $self.msg  = $msg;

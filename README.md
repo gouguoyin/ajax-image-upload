@@ -103,6 +103,7 @@ if(move_uploaded_file($file["tmp_name"], $upload_path.$file['name'])){
 * 解决图片名里含有多个.时图片格式验证失败的BUG
 * 鼠标放在上传图标上时新增pointer鼠标样式
 * 优化CSS样式，删除无用的样式
+* 优化complete()函数判断逻辑
 
 ##### 2020-03-28
 * 解决allowZoom设置为false时无法删除图片的BUG
