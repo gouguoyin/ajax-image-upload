@@ -20,9 +20,9 @@ demo:[www.gouguoyin.cn/ajaxImageUpload](http://www.gouguoyin.cn/ajaxImageUpload)
  - 1、先引入jquery和插件的css和js，注意先引入jquery
  
 ```
-<link href="./css/upload.min.css" type="text/css" rel="stylesheet" />
+<link href="./css/jquery.upload.min.css" type="text/css" rel="stylesheet" />
 <script src="https://cdn.staticfile.org/jquery/3.1.0/jquery.min.js"></script>
-<script src="./js/upload.min.js"></script>
+<script src="./js/jquery.upload.min.js"></script>
 ```
 
  - 2、HTML结构
