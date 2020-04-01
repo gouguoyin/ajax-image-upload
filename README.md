@@ -3,11 +3,11 @@
 
 如果您觉得对您有用的话，别忘了给点个赞哦^_^ ！
 
-github:[github.com/gouguoyin/ajaxImageUpload](https://github.com/gouguoyin/ajaxImageUpload "github.com/gouguoyin/ajaxImageUpload")
+github:[github.com/gouguoyin/ajax-image-upload](https://github.com/gouguoyin/ajax-image-upload)
 
-gitee:[gitee.com/gouguoyin/ajaxImageUpload](https://gitee.com/gouguoyin/ajaxImageUpload "gitee.com/gouguoyin/ajaxImageUpload")
+gitee:[gitee.com/gouguoyin/ajax-image-upload](https://gitee.com/gouguoyin/ajax-image-upload)
 
-demo:[www.gouguoyin.cn/ajaxImageUpload](http://www.gouguoyin.cn/ajaxImageUpload)
+demo:[www.gouguoyin.cn/ajax-image-upload](http://www.gouguoyin.cn/ajax-image-upload)
 
 ###### 上传前
 ![演示截图](https://image-static.segmentfault.com/307/630/3076307501-5e7f37312c655)
