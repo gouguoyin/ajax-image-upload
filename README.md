@@ -36,12 +36,12 @@ demo:[www.gouguoyin.cn/ajax-image-upload](http://www.gouguoyin.cn/ajax-image-upl
 ```javascript
 $(".upload-box1").ajaxImageUpload({
     fileInput: 'file1', //上传按钮名，即input[type=file]的name值
-    ajaxUrl: './upload1.php', //上传的服务器地址
+    postUrl: './upload1.php', //上传的服务器地址
 });
 
 $(".upload-box2").ajaxImageUpload({
     fileInput: 'file2', //上传按钮名，即input[type=file]的name值
-    ajaxUrl: './upload2.php', //上传的服务器地址
+    postUrl: './upload2.php', //上传的服务器地址
 });
 ```
 
