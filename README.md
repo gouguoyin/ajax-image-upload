@@ -84,9 +84,11 @@ if(move_uploaded_file($file["tmp_name"], $upload_path.$file['name'])){
 | 配置项 | 配置说明 | 必选 | 默认值 |
 | --- | --- | --- |  --- | 
 | `fileInput` |  上传按钮名，即input[type=file]的name值 | 是 | |
-| `ajaxUrl` | ajax请求地址，post方式 | 是 | | 
+| `postUrl` | post请求地址 | 是 | | 
+| `width` | 图片宽度 | 否 | 150 | 
+| `height` | 图片高度 | 否 | 150 | 
 | `imageUrl` |  已上传的图片连接 | 否 | [] | 
-| `ajaxData` |  额外携带的json数据 | 否 | {} | 
+| `postData` |  额外携带的json数据 | 否 | {} | 
 | `allowZoom` |  是否允许放大 | 否 |true | 
 | `allowType` |  允许上传图片的类型 | 否 | ["gif", "jpeg", "jpg", "bmp", "png"] | 
 | `maxNum` |  允许上传图片数量 | 否 | 3 | 
@@ -98,6 +100,12 @@ if(move_uploaded_file($file["tmp_name"], $upload_path.$file['name'])){
 | `error` |  上传失败回调函数 | 否 | | 
 
  **更新日志** 
+ 
+##### 2020-04-30
+* ajaxUrl参数改名为postUrl
+* ajaxData参数改名为postData
+* 新增width参数，用于控制上传后显示图片的宽度
+* 新增heught参数，用于控制上传后显示图片的高度
 
 ##### 2020-03-30
 * 解决图片名里含有多个.时图片格式验证失败的BUG

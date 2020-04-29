@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>上传图片插件</title>
-    <link href="../src/css/jquery.upload.min.css" type="text/css" rel="stylesheet" />
+    <link href="../src/css/jquery.upload.css" type="text/css" rel="stylesheet" />
 
     <style>
         .upload-box{
@@ -33,14 +33,16 @@
 </div>
 
 <script src="https://cdn.staticfile.org/jquery/3.1.0/jquery.min.js"></script>
-<script src="../src/js/jquery.upload.min.js"></script>
+<script src="../src/js/jquery.upload.js"></script>
 
 <script>
 
     $(".image-box1").ajaxImageUpload({
         fileInput : 'file1',
-        ajaxUrl : './upload1.php', //上传的服务器地址
-        ajaxData : { csrf:'token1' },
+        postUrl : './upload1.php', //上传的服务器地址
+        width : 180,
+        height : 180,
+        postData : { csrf:'token1' },
         imageUrl: ['./uploads/demo1.jpg'],
         maxNum : 2, //允许上传图片数量
         allowZoom : true, //允许放大
@@ -63,9 +65,11 @@
 
     $(".image-box2").ajaxImageUpload({
         fileInput : 'file2',
-        ajaxUrl : './upload2.php', //上传的服务器地址
+        postUrl : './upload2.php', //上传的服务器地址
+        width : 180,
+        height : 180,
         imageUrl: ['./uploads/demo2.jpg'],
-        ajaxData : { csrf:'token2' },
+        postData : { csrf:'token2' },
         maxNum: 3, //允许上传图片数量
         allowZoom : false, //允许放大
         maxSize : 1, //允许上传图片的最大尺寸，单位M

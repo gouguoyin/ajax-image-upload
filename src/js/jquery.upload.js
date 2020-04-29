@@ -1,10 +1,13 @@
-;(function($) {
+"use strict";
+!(function($) {
     var pluginName = "ajaxImageUpload",
         defaults   = {
             fileInput: '', // 上传按钮名，即input[type=file]的name值
-            ajaxUrl: '', // 请求地址
+            postUrl: '', // POST上传地址
+            width: 150, // 图片宽度
+            height: 150, // 图片高度
             imageUrl: [], // 已上传的图片连接
-            ajaxData: {}, // 额外数据
+            postData: {}, // 额外数据
             allowZoom: true, // 是否允许缩放
             allowType: ["gif", "jpeg", "jpg", "bmp", "png"],
             maxNum: 5, // 最多允许上传个数
@@ -149,6 +152,8 @@
         createImageSection: function($src) {
             var $self = this,
                 $this = $(this.element),
+                $width  = $self.settings.width,
+                $height = $self.settings.height,
                 $fileInput = $self.settings.fileInput,
                 $allowZoom = $self.settings.allowZoom,
                 $appendMethod = $self.settings.appendMethod,
@@ -162,6 +167,9 @@
             if ($src) {
                 $imageShow = $("<img class='ggy-image-show' src='" + $src + "'/>");
             }
+
+            $imageSection.css({ 'width':$width, 'height':$height });
+            $uploadSection.css({ 'width':$width, 'height':$height });
 
             switch ($appendMethod) {
                 case "before":
@@ -241,8 +249,8 @@
             var $self = this,
                 $this = $(this.element),
                 $fileInput = $self.settings.fileInput,
-                $ajaxData  = $self.settings.ajaxData,
-                $ajaxUrl   = $self.settings.ajaxUrl,
+                $postData  = $self.settings.postData,
+                $postUrl   = $self.settings.postUrl,
                 $allowZoom = $self.settings.allowZoom,
                 $success   = $self.settings.success,
                 $appendMethod = $self.settings.appendMethod;
@@ -262,12 +270,12 @@
 
             $formData.append($fileInput, $file);
 
-            for (var $key in $ajaxData) {
-                $formData.append($key, $ajaxData[$key]);
+            for (var $key in $postData) {
+                $formData.append($key, $postData[$key]);
             }
-            
+
             $.ajax({
-                url: $ajaxUrl,
+                url: $postUrl,
                 type: 'post',
                 async: false,
                 data: $formData,
