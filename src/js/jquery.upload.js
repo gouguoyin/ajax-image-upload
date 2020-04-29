@@ -59,15 +59,15 @@
                 $this = $(this.element),
                 $maxNum  = $self.settings.maxNum,
                 $maxSize = $self.settings.maxSize,
-                $ajaxUrl = $self.settings.ajaxUrl,
+                $postUrl = $self.settings.postUrl,
                 $fileInput = $self.settings.fileInput,
                 $before    = $self.settings.before,
                 $complete  = $self.settings.complete,
                 $uploadInput  = $this.find("input[type=file]"),
                 $imageSection = $this.find('.ggy-image-section');
 
-            if (!$ajaxUrl) {
-                $self.callError("300", "没有配置ajaxUrl");
+            if (!$postUrl) {
+                $self.callError("300", "没有配置postUrl");
                 $self.resetFile();
                 return false;
             }
