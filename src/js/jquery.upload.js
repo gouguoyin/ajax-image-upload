@@ -262,12 +262,10 @@
 
             $formData.append($fileInput, $file);
 
-            if ($ajaxData.length > 0) {
-                for (var $key in $ajaxData) {
-                    $formData.append($key, $ajaxData[$key]);
-                }
+            for (var $key in $ajaxData) {
+                $formData.append($key, $ajaxData[$key]);
             }
-
+            
             $.ajax({
                 url: $ajaxUrl,
                 type: 'post',
