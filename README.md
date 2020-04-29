@@ -84,7 +84,7 @@ if(move_uploaded_file($file["tmp_name"], $upload_path.$file['name'])){
 | 配置项 | 配置说明 | 必选 | 默认值 |
 | --- | --- | --- |  --- | 
 | `fileInput` |  上传按钮名，即input[type=file]的name值 | 是 | |
-| `ajaxUrl` | ajax请求地址 | 是 | | 
+| `ajaxUrl` | ajax请求地址，post方式 | 是 | | 
 | `imageUrl` |  已上传的图片连接 | 否 | [] | 
 | `ajaxData` |  额外携带的json数据 | 否 | {} | 
 | `allowZoom` |  是否允许放大 | 否 |true | 
