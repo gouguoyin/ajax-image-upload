@@ -70,7 +70,7 @@ if(!is_dir($upload_path) && !mkdir($upload_path, 0777, true)){
 };
 
 if(move_uploaded_file($file["tmp_name"], $upload_path.$file['name'])){
-    echo json_encode(['code' => 200, 'src' => $file_path.$file['name']]);
+    echo json_encode(['code' => 200, 'src' => $file_path . $file['name']]);
     return true;
 }else{
     echo json_encode(['code' => 404, 'msg' => '上传失败']);
