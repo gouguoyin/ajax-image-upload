@@ -105,7 +105,7 @@ if(move_uploaded_file($file["tmp_name"], $upload_path.$file['name'])){
 * ajaxUrl参数改名为postUrl
 * ajaxData参数改名为postData
 * 新增width参数，用于控制上传后显示图片的宽度
-* 新增heught参数，用于控制上传后显示图片的高度
+* 新增height参数，用于控制上传后显示图片的高度
 
 ##### 2020-03-30
 * 解决图片名里含有多个.时图片格式验证失败的BUG
