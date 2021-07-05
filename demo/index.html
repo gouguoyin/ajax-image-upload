@@ -2,9 +2,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>上传图片插件</title>
+    <title>ajax无刷新图片上传插件</title>
     <link href="../src/css/jquery.upload.css" type="text/css" rel="stylesheet" />
-
+    <meta name="author" content="gouguoyin">
+    <meta name="qq" content="245629560">
+    <meta name="description" content="原创jQuery图片上传插件，支持批量上传、预览、删除、放大、上传数量、上传大小、追加方式配置以及上传前、上传中、上传后和删除的回调函数">
     <style>
         .upload-box{
             padding: 0 20px;
@@ -21,6 +23,11 @@
     </style>
 </head>
 <body>
+<div class="upload-box clear">
+<p>原创jQuery图片上传插件，支持批量上传、预览、删除、放大、上传数量、上传大小、追加方式配置以及上传前、上传中、上传后和删除的回调函数。</p>
+    <p>github:<a target="_blank" href="https://github.com/gouguoyin/ajax-image-upload">gitee.com/gouguoyin/ajax-image-upload</a></p>
+    <p>gitee:<a target="_blank" href="https://gitee.com/gouguoyin/ajax-image-upload">gitee.com/gouguoyin/ajax-image-upload</a></p>
+</div>
 
 <div class="upload-box clear">
     <p class="upload-tip">最多上传2张图片(包含已上传的)，每个图片不能超过1M，向前追加图片，只允许上传png格式图片</p>
@@ -53,10 +60,13 @@
             alert('上传前回调函数1');
         },
         success : function(json){
-            alert('上传成功回调函数1');
+            alert('上传成功回调函数1' + json);
         },
         complete : function () {
-            alert('全部上传成功1');
+            alert('全部上传成功回调函数1');
+        },
+        delete : function (src) {
+            alert('删除时回调函数1，要删除的文件路径：' + src);
         },
         error : function (e) {
             alert(e.msg + '(' + e.code + ')');
@@ -81,13 +91,26 @@
             alert('上传成功回调函数2');
         },
         complete : function () {
-            alert('全部上传成功2');
+            alert('全部上传成功回调函数2');
+        },
+        delete : function (src) {
+            alert('删除时回调函数2，要删除的文件路径：' + src);
         },
         error : function (e) {
             alert(e.msg + '(' + e.code + ')');
         }
     });
 
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2672fd21c12471eb156ebd07dfac2623";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 </script>
 
 </body>

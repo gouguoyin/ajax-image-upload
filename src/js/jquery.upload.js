@@ -16,7 +16,8 @@
             before: $.noop, // 上传前回调函数
             success: $.noop, // 上传成功时的回调函数
             error: $.noop, // 上传失败时的回调函数
-            complete: $.noop // 所有上传完成时的回调函数
+            complete: $.noop, // 所有上传完成时的回调函数
+            delete: $.noop // 删除图片时的回调函数
         };
 
     function Plugin(element, options) {
@@ -192,10 +193,13 @@
         },
 
         createDeleteNode: function($imageSection) {
-            var $this = $(this.element),
+            var $self = this,
+                $this = $(this.element),
                 $modalSection = $this.find(".ggy-modal-section"),
+                $imageShow    = $imageSection.find(".ggy-image-show"),
                 $deleteIcon   = $("<i class='ggy-delete-icon'></i>"),
-                $deleteBox    = $("<div class='ggy-modal-box ggy-delete-box'><p class='ggy-delete-tip'>您确定要删除吗？</p><p class='ggy-delete-btn'> <span class='ggy-confirm-btn'>确定</span><span class='ggy-cancel-btn'>取消</span></p></div>");
+                $deleteBox    = $("<div class='ggy-modal-box ggy-delete-box'><p class='ggy-delete-tip'>您确定要删除吗？</p><p class='ggy-delete-btn'> <span class='ggy-confirm-btn'>确定</span><span class='ggy-cancel-btn'>取消</span></p></div>"),
+                $delete       = $self.settings.delete;
 
             $deleteIcon.appendTo($imageSection);
 
@@ -212,6 +216,7 @@
                 $modalSection.hide();
                 $imageSection.remove();
                 $deleteBox.remove();
+                $delete($imageShow.attr('src'));
             });
 
             // 取消删除
