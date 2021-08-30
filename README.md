@@ -9,6 +9,9 @@ gitee:[gitee.com/gouguoyin/ajax-image-upload](https://gitee.com/gouguoyin/ajax-i
 
 demo:[www.gouguoyin.cn/ajax-image-upload](http://www.gouguoyin.cn/ajax-image-upload)
 
+[robeeask community](http://ajaxupload.robeeask.com/ "ajaxupload.robeeask.com")
+
+
 ###### 上传前
 ![演示截图](https://image-static.segmentfault.com/307/630/3076307501-5e7f37312c655)
 ###### 上传后
